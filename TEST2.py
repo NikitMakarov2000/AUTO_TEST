@@ -6,16 +6,32 @@ broweser = webdriver.Chrome()
 broweser.get(link)
 broweser.maximize_window()
 
+login = "standard_user"
+password_all = "secret_sauce"
+
 user_name = broweser.find_element(By.XPATH, "//input[@id='user-name']")
-user_name.send_keys("standard_user")
-user_name.click()
+user_name.send_keys(login)
+print("Input Login")
 
 password = broweser.find_element(By.XPATH, "//input[@id='password']")
-password.send_keys("secret_sauce")
-password.click()
+password.send_keys(password_all)
+print("Input Password")
 
-login = broweser.find_element(By.XPATH, "//input[@id='login-button']")
-login.click()
+button_login = broweser.find_element(By.XPATH, "//input[@id='login-button']")
+button_login.click()
+print("Click Login Button")
+
+#text_products = broweser.find_element(By.XPATH, "//span[@class='title']")
+#value_text_products = text_products.text
+#print(value_text_products)
+#assert value_text_products == "PRODUCTS"
+#print("GOOD")
+
+url = "https://www.saucedemo.com/inventory.html"
+get_url = broweser.current_url
+print(get_url)
+assert  url == get_url
+print("GOOD URL")
 
 add_to_cart = broweser.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
 add_to_cart.click()
@@ -26,8 +42,8 @@ shopping_cart.click()
 checkout = broweser.find_element(By.XPATH, "//button[@id='checkout']")
 checkout.click()
 
-firsr_name = broweser.find_element(By.XPATH, "//input[@id='first-name']")
-firsr_name.send_keys("Jack")
+first_name = broweser.find_element(By.XPATH, "//input[@id='first-name']")
+first_name.send_keys("Jack")
 
 last_name = broweser.find_element(By.XPATH, "//input[@id='last-name']")
 last_name.send_keys("Backer")
